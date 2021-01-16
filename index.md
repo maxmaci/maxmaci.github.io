@@ -1,3 +1,23 @@
 ---
 layout: home
 ---
+paginate: true
+alt_title: "Absinthematics"
+sub_title: "Unbeknownst unknowledge of an unknown mathematician"
+image: /assets/images/amine-ounnas-180287.jpg
+introduction: |
+  Absinthematics is the blog of Massimo Bertolotti, an undergraduate student studying Mathematics at the University of Turin, Italy.
+
+  - Clean responsive design with six customizable skins
+  - Curriculum Vitæ/Resume layout powered by [JSON data](http://registry.jsonresume.org/)
+  - About page layout
+  - Disqus Comments and Google Analytics support
+  - SEO best practices via [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag/)
+actions:
+  - label: "Get Started"
+    icon: github
+    url: "https://github.com/mmistakes/jekyll-theme-basically-basic"
+  - label: "Download"
+    icon: download
+    url: "https://github.com/mmistakes/jekyll-theme-basically-basic/archive/master.zip"
+---
