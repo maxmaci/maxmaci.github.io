@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 lang: en-EN
 title: Absynthematics
-email:
+email: massimo.bertolott86@edu.unito.it
 description: Unbeknownst unknowledge of an unknown mathematician.
 baseurl: # the optional subpath of your site, e.g. "/blog"
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -24,7 +24,7 @@ author:
   twitter:
   picture:
 twitter_username:
-github_username:
+github_username: maxmaci
 logo: # path of site logo, e.g. "/assets/images/logo.png"
 search: # true, false (default)
 search_full_content: false # true, false (default)
