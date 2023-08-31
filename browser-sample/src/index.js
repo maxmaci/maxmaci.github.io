@@ -7,8 +7,8 @@ import Home from './pages/Home';
 import './index.scss';
 
 const logtoClient = new LogtoClient({
-  endpoint,
-  appId,
+  endpoint: 'https://n2wxlq.logto.app/',
+  appId: 'slgggu1ptgbnxeuh4kfqg',
   scopes: [UserScope.Email, UserScope.Phone, UserScope.CustomData, UserScope.Identities],
 });
 const app = document.querySelector('#app');
