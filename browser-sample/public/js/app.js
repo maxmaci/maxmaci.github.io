@@ -52,3 +52,11 @@ const login = async () => {
     }
   });
 };
+
+const logout = () => {
+  auth0Client.logout({
+    logoutParams: {
+      returnTo: 'https://maxmaci.github.io/browser-sample/public/index.html'
+    }
+  });
+};
