@@ -19,14 +19,61 @@ label {
 
 </head>
 <body>
+<script>
+  auth0.createAuth0Client({
+  domain: "dev-h7jej0q3tm4em3ml.eu.auth0.com",
+  clientId: "29uAIPgEvDc1xkAOGEGFMjWbZvIXpvlR",
+  authorizationParams: {
+    redirect_uri: window.location.origin
+  }
+}).then(async (auth0Client) => {
+  // Assumes a button with id "login" in the DOM
+  const loginButton = document.getElementById("login");
 
-    <h2>SFACIMM Authentication Sample</h2>
-    <p>Welcome to our page!</p>
-    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
-    <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
-	  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-  <script src="js/app.js"></script>
+  loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    auth0Client.loginWithRedirect();
+  });
 
-  </body>
+  if (location.search.includes("state=") && 
+      (location.search.includes("code=") || 
+      location.search.includes("error="))) {
+    await auth0Client.handleRedirectCallback();
+    window.history.replaceState({}, document.title, "/");
+  }
+
+  // Assumes a button with id "logout" in the DOM
+  const logoutButton = document.getElementById("logout");
+
+  logoutButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    auth0Client.logout();
+  });
+
+  const isAuthenticated = await auth0Client.isAuthenticated();
+  const userProfile = await auth0Client.getUser();
+
+  // Assumes an element with id "profile" in the DOM
+  const profileElement = document.getElementById("profile");
+
+  if (isAuthenticated) {
+    profileElement.style.display = "block";
+    profileElement.innerHTML = `
+            <p>${userProfile.name}</p>
+            <img src="${userProfile.picture}" />
+          `;
+  } else {
+    profileElement.style.display = "none";
+  }
+});
+</script>
+
+<h2>SPA Authentication Sample</h2>
+  <p>Welcome to our page!</p>
+  <input type="button" id="login" disabled="true" onclick="login()" value="Log in"/>
+  <input type="button" id="logout" disabled="true" onclick="logout()" value="Log out"/>
+
+
+</body>
 
 </html>
