@@ -20,7 +20,7 @@ label {
 </head>
 <body>
 
-    <h2>SFACIMM Authentication Sample</h2>
+    <h2>Test Authentication Sample</h2>
     <p>Welcome to our page!</p>
     <button id="btn-login" disabled="true" onclick="login()">Log in</button>
     <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
@@ -61,14 +61,14 @@ label {
   const login = async () => {
     await auth0Client.loginWithRedirect({
       authorizationParams: {
-        redirect_uri: 'https://codepen.io/Mirn-Lonh/pen/oNJxZxL'
+        redirect_uri: 'https://maxmaci.github.io/browser-sample/public/index.html'
       }
     });
   };
   const logout = () => {
     auth0Client.logout({
       logoutParams: {
-        returnTo: 'https://codepen.io/Mirn-Lonh/pen/oNJxZxL'
+        returnTo: 'https://maxmaci.github.io/browser-sample/public/index.html'
       }
     });
   };
