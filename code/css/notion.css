@@ -566,6 +566,7 @@ margin: 1em 1em 4em 1em!important;
      --color-bg-blue: hsla( var(--blue-h), var(--blue-s), var(--blue-l), 0.1)!important;
      --color-bg-brown: hsla( var(--brown-h), var(--brown-s), var(--brown-l), 0.1)!important;
      --color-bg-gray: hsla( var(--gray-h), var(--gray-s), var(--gray-l), 0.1)!important;
+	 --navigbar-max-width: 708px;
 }
 
 .notion-dropdown__button, .notion-dropdown__menu-header, .notion-dropdown__option p {
