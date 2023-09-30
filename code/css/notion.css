@@ -59,7 +59,6 @@ margin: 1em 1em 4em 1em!important;
      width: calc(100% - var(--column-spacing))!important;
      border-radius: var(--border-radii-layout)!important;
      top: 1em!important;
-     backdrop-filter: blur(36px)!important;
      height: 3.5em!important;
 }
 .super-navbar__cta {
