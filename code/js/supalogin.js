@@ -4,7 +4,12 @@ let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
 let doSignUp = async () => {
-  const { user, session, error } = await supa.auth.signUp({
+  if (password_signup.length < 6) {
+    showMessage('La password deve essere almeno di 6 caratteri!');
+  } else if (username_signup.length < 3) {
+    showMessage('Lo username deve essere almeno di 3 caratteri!');
+  } else {
+	const { user, session, error } = await supa.auth.signUp({
     email: email_signup.value,
     password: password_signup.value
   })
@@ -23,7 +28,7 @@ let doSignUp = async () => {
   .catch((err) => {
       showMessage('Email e/o password errata!')
     });
-  //log({ user, session, error });
+  }
 };
 
 // Capture email and password input fields for sign-in
