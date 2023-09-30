@@ -1,0 +1,201 @@
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 98;
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 350px;
+  height: 500px;
+  margin: 100px auto;
+  background: #a22a08;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #a22a08,
+    #b73511,
+    #cc4019,
+    #e14b21,
+    #f55529
+  );
+  z-index: 99;
+  box-shadow: 5px 20px 50px #000;
+  transform: translateY(20px);
+  position: absolute;
+  left: 50%;
+  margin-left: -175px;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.modal-content-forgot-password {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 350px;
+  height: 500px;
+  margin: 100px auto;
+  background: #a22a08;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #a22a08,
+    #b73511,
+    #cc4019,
+    #e14b21,
+    #f55529
+  );
+  z-index: 100;
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -175px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.close-button {
+  position: relative;
+  top: 2%;
+  left: 92%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff; /* Change the color to your preference */
+  z-index: 99; /* Ensure it's on top of other content */
+}
+
+.close-button:hover {
+  color: #f00; /* Change the hover color to your preference */
+}
+
+.close-forgot-password {
+  position: relative;
+  top: 2%;
+  left: 90%;
+  font-size: 22px;
+  cursor: pointer;
+  color: #fff; /* Change the color to your preference */
+  z-index: 101; /* Ensure it's on top of other content */
+}
+
+.close-forgot-password:hover {
+  color: #f00; /* Change the hover color to your preference */
+}
+
+#chk {
+  display: none;
+}
+.signup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+label {
+  color: #fff;
+  font-size: 2.3em;
+  justify-content: center;
+  display: flex;
+  margin: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.login {
+  height: 460px;
+  background: #eee;
+  border-radius: 70% / 10%;
+  transform: translateY(-150px);
+  transition: 0.8s ease-in-out;
+}
+.login label {
+  color: #a22a08;
+  transform: scale(0.6);
+  position: relative;
+  top: 10px;
+}
+.forgot-password {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.forgot-password label {
+  color: #fff;
+  font-size: 2.3em;
+  justify-content: center;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+}
+.forgot-password-description {
+  color: #fff;
+  display: flex;
+  font-weight: bold;
+  text-align: justify;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#chk:checked ~ .login {
+  transform: translateY(-480px);
+}
+#chk:checked ~ .login label {
+  transform: scale(1);
+  position: relative;
+  top: 13px;
+}
+#chk:checked ~ .signup label {
+  transform: scale(0.6);
+}
+#auth-button {
+    margin-left: 10px; /* Add space to the left of the button */
+    margin-bottom: 18px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 8px;
+    border-radius: var(--border-radii-layout)!important;
+    height: calc(0.8*var(--navbar-height));
+    width: calc(0.8*var(--navbar-height));
+    display: none;
+  }
+  
+  #sign-out {
+    margin-left: 10px; /* Add space to the left of the button */
+    margin-bottom: 18px;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 8px;
+    border-radius: var(--border-radii-layout)!important;
+    height: calc(0.8*var(--navbar-height));
+    width: calc(0.8*var(--navbar-height));
+    display: none;
+  }
+
+#log {
+  display: none;
+}
+
+.password-container {
+  position: relative;
+  width: 60%;
+  margin: 20px auto;
+}
+
+.show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-45%);
+            cursor: pointer;
+}
+
+        .password-input {
+            padding-right: 30px;
+            width: 100%;
+        }
