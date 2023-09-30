@@ -74,9 +74,6 @@ margin: 1em 1em 4em 1em!important;
   padding: 0px;
   box-shadow: var(--box-shadow);
 }
-.super-navbar__menu-open {
- display:flex;
-}
 .super-navbar .super-navbar__item-list {
     display: none;
 }
@@ -656,7 +653,7 @@ html.theme-dark {
   --button-hover: #534965;
   --box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px;
   --color-pill-default: hsl(var(--gray-h),var(--gray-s),calc(var(--gray-l) - 28%));
-  --color-pill-text-default: hsl(var(--gray-h),var(--gray-s),calc(var(--gray-l) - 28%));
+  --color-pill-text-default: hsl(var(--gray-h),var(--gray-s),calc(var(--gray-l) + 28%));
 }
 
 .notion-collection-table__cell span {
