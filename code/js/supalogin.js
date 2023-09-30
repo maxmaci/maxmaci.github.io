@@ -4,9 +4,9 @@ let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
 let doSignUp = async () => {
-  if (password_signup.length < 6) {
+  if (password_signup.value.length < 6) {
     showMessage('La password deve essere almeno di 6 caratteri!');
-  } else if (username_signup.length < 3) {
+  } else if (username_signup.value.length < 3) {
     showMessage('Lo username deve essere almeno di 3 caratteri!');
   } else {
 	const { user, session, error } = await supa.auth.signUp({
