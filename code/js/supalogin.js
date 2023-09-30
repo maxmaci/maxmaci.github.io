@@ -10,8 +10,6 @@ let doSignUp = async () => {
   })
   .then((response) => {
     console.log(response)
-    email_signup.value = "";
-    password_signup.value = "";
       if (response.error) {
         showMessage('Email e/o password non validi!');
       } else {
