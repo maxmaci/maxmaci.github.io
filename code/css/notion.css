@@ -656,8 +656,8 @@ html.theme-dark {
   --button: #3A2F4E;
   --button-hover: #534965;
   --box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px;
-  --color-pill-default: hsl(0,0%,27%);
-  --color-pill-text-default: hsl(0,0%,100%);
+  --color-pill-default: hsl(var(--gray-h),var(--gray-s),calc(var(--gray-l) - 28%));
+  --color-pill-text-default: hsl(var(--gray-h),var(--gray-s),calc(var(--gray-l) - 28%));
 }
 
 .notion-collection-table__cell span {
