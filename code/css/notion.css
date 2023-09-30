@@ -68,11 +68,12 @@ margin: 1em 1em 4em 1em!important;
      transition: 0.1s ease-in-out!important;
 }
 .super-navbar__content {
- width: 100%!important;
- border-radius: var(--border-radii-layout)!important;
-  height: var(--navbar-height);
-  padding: 0px;
-  box-shadow: var(--box-shadow);
+	width: 100%!important;
+	border-radius: var(--border-radii-layout)!important;
+	height: var(--navbar-height);
+	padding: 0px;
+	background: var(--navbar-background-color);
+	box-shadow: var(--box-shadow);
 }
 .super-navbar .super-navbar__item-list {
     display: none;
@@ -84,6 +85,7 @@ margin: 1em 1em 4em 1em!important;
   justify-content: space-between;
   align-items: center;
   box-shadow: none;
+  background: none;
 }
 /*--------- footer ---------*/
  .super-footer.stack {
