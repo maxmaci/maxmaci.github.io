@@ -3,57 +3,37 @@ let username_signup = document.getElementById("username-sign-up");
 let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
-async validUsername(username: string): Promise<boolean> {
-        const { error, count } = await supa.from('profiles')
-            .select('username', { count: 'exact' }).eq('username', username);
-        if (error) {
-            console.error(error);
-        }
-        return count === 0;
-    }
-
 let doSignUp = async () => {
   if (password_signup.value.length < 6) {
     showMessage('La password deve essere almeno di 6 caratteri!');
   } else if (username_signup.value.length < 3) {
     showMessage('Lo username deve essere almeno di 3 caratteri!');
   } else {
-	validUsername(username_signup.value)
-	.then((available) => {
-    if (available) {
-		console.log(`Username "${username_signup.value}" is available.`);
-		const { user, session, error } = await supa.auth.signUp({
-		email: email_signup.value,
-		password: password_signup.value,
-		options: {
-		data: {
-			username: username_signup.value,
-			avatar_url: 'https://upload.wikimedia.org/wikipedia/en/6/62/Kermit_the_Frog.jpg',
-			},
-		},
-		})
-		.then((response) => {
-		console.log(response)
-		if (response.error) {
-			showMessage('Email e/o password non validi!');
-		} else {
-			logoutButton.style.display = 'block';
-			closeModal();
-			setTimeout(() => {
-			showMessage("Controlla la casella di posta elettronica per convalidare l'account.");
-			}, 310);
-		}//alert('Logged in as ' + response.data.user.email)
-		})
-		.catch((err) => {
-			showMessage('Email e/o password errata!')
-		});
-    } else {
-      console.log(`Username "${username_signup.value}" is already taken.`);
-    }
-	})
-	.catch((error) => {
-		console.error('Error:', error);
-	});
+	const { user, session, error } = await supa.auth.signUp({
+    email: email_signup.value,
+    password: password_signup.value,
+	options: {
+    data: {
+      username: username_signup.value,
+	  avatar_url: 'https://example.com/welcome'
+    },
+  },
+  })
+  .then((response) => {
+    console.log(response)
+      if (response.error) {
+        showMessage('Email e/o password non validi!');
+      } else {
+        logoutButton.style.display = 'block';
+        closeModal();
+        setTimeout(() => {
+        showMessage("Controlla la casella di posta elettronica per convalidare l'account.");
+        }, 310);
+      }//alert('Logged in as ' + response.data.user.email)
+    })
+  .catch((err) => {
+      showMessage('Email e/o password errata!')
+    });
   }
 };
 
