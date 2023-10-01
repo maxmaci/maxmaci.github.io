@@ -3,25 +3,15 @@ let username_signup = document.getElementById("username-sign-up");
 let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
-async function isUsernameAvailable(username) {
-  try {
-    // Query the "profiles" table to check if the username exists
-    const { data, error } = await supa
-      .from('profiles')
-      .select('username', { count: 'exact' })
-	  .eq('username', username);
-
-    if (error) {
-      throw error;
+async isUsernameAvailable(username: string): Promise<boolean> {
+        const { error, count } = await supabase.from('profiles')
+            .select('username', { count: 'exact' }).eq('username', username);
+        if (error) {
+            console.error(error);
+        }
+        return count === 0;
     }
 
-    // If there is data returned, the username already exists
-    return data.length === 0;
-  } catch (error) {
-    console.error('Error checking username:', error.message);
-    return false;
-  }
-}
 
 let doSignUp = async () => {
   if (password_signup.value.length < 6) {
@@ -31,6 +21,7 @@ let doSignUp = async () => {
   } else {
 	  
 	const isUsernameAvailable = await isUsernameAvailable(username_signup.value);
+	console.log(isUsernameAvailable);
 
     if (!isUsernameAvailable) {
       showMessage('Username già in uso. Scegli un altro.');
