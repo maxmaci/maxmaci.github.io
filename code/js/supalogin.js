@@ -21,10 +21,10 @@ let doSignUp = async () => {
     showMessage('Lo username deve essere almeno di 3 caratteri!');
   } else {
 	  
-	const isUsernameAvailable = await isUsernameAvailable(username_signup.value);
+	const usernameAvailable = await isUsernameAvailable(username_signup.value);
 	console.log(isUsernameAvailable);
 
-    if (!isUsernameAvailable) {
+    if (!usernameAvailable) {
       showMessage('Username già in uso. Scegli un altro.');
       return; // Exit the function if the username is not available
     }
