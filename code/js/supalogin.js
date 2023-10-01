@@ -4,7 +4,7 @@ let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
 async isUsernameAvailable(username: string): Promise<boolean> {
-        const { error, count } = await supabase.from('profiles')
+        const { error, count } = await supa.from('profiles')
             .select('username', { count: 'exact' }).eq('username', username);
         if (error) {
             console.error(error);
