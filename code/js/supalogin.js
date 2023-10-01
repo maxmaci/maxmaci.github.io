@@ -3,7 +3,7 @@ let username_signup = document.getElementById("username-sign-up");
 let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
-async isUsernameAvailable(username: string): Promise<boolean> {
+let isUsernameAvailable = async (username) => {
         const { error, count } = await supa.from('profiles')
             .select('username', { count: 'exact' }).eq('username', username);
         if (error) {
@@ -11,6 +11,7 @@ async isUsernameAvailable(username: string): Promise<boolean> {
         }
         return count === 0;
     }
+
 
 
 let doSignUp = async () => {
