@@ -3,19 +3,47 @@ let username_signup = document.getElementById("username-sign-up");
 let email_signup = document.getElementById("email-sign-up");
 let password_signup = document.getElementById("password-sign-up");
 
+async function isUsernameAvailable(username) {
+  try {
+    // Query the "profiles" table to check if the username exists
+    const { data, error } = await supa
+      .from('profiles')
+      .select('username', { count: 'exact' })
+	  .eq('username', username);
+
+    if (error) {
+      throw error;
+    }
+
+    // If there is data returned, the username already exists
+    return data.length === 0;
+  } catch (error) {
+    console.error('Error checking username:', error.message);
+    return false;
+  }
+}
+
 let doSignUp = async () => {
   if (password_signup.value.length < 6) {
     showMessage('La password deve essere almeno di 6 caratteri!');
   } else if (username_signup.value.length < 3) {
     showMessage('Lo username deve essere almeno di 3 caratteri!');
   } else {
+	  
+	const isUsernameAvailable = await isUsernameAvailable(username_signup.value);
+
+    if (!isUsernameAvailable) {
+      showMessage('Username già in uso. Scegli un altro.');
+      return; // Exit the function if the username is not available
+    }
+	
 	const { user, session, error } = await supa.auth.signUp({
     email: email_signup.value,
     password: password_signup.value,
 	options: {
     data: {
       username: username_signup.value,
-	  avatar_url: 'https://example.com/welcome'
+	  avatar_url: 'https://upload.wikimedia.org/wikipedia/en/6/62/Kermit_the_Frog.jpg',
     },
   },
   })
